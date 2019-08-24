@@ -1,0 +1,276 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`function [custom component] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+  background-color: #000;
+}
+
+<span
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`function [returns object] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+  background-color: #000;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`function [with hooks] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  width: 200px;
+  font-size: 1rem;
+  color: blue;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`function 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+  background-color: #000;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`object [as prop] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+  background-color: #000;
+}
+
+<span
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`object [custom component] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+  background-color: #000;
+}
+
+<span
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`object [with hooks] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  width: 200px;
+  font-size: 1rem;
+  color: blue;
+  background-color: #000;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`object 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+  background-color: #000;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`string [as prop] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+  background-color: #000;
+}
+
+<span
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`string [custom component] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+  background-color: #000;
+}
+
+<span
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`string [with hooks] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  width: 200px;
+  font-size: 1rem;
+  color: blue;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`string 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+  background-color: #000;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`template literal [as prop] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+  background-color: #000;
+}
+
+<span
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`template literal [css] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+  background: #000;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`template literal [custom component] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+  background: #000;
+}
+
+<span
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`template literal [falsy] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`template literal [function -> object] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+  background: #000;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`template literal [function -> string] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+  background: #000;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`template literal [function -> string] 2`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`template literal [plain string] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: blue;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`template literal [with hooks] 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  width: 200px;
+  font-size: 1rem;
+  color: blue;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;

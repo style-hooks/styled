@@ -1,0 +1,27 @@
+{
+  "presets": [
+    [
+      "@style-hooks/es",
+      {
+        "env": {
+          "targets": {"node": "8"}
+        }
+      }
+    ]
+  ],
+  "env": {
+    "es": {
+      "presets": [
+        [
+          "@style-hooks/es",
+          {
+            "env": {
+              "modules": false,
+              "targets": ">2% in US"
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
