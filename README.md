@@ -7,7 +7,7 @@
 
 <p align=center>
   <br/>
-  <img src='https://raw.githubusercontent.com/jaredLunde/style-hooks/master/assets/logo%402x.png' width='320'/>
+  <img src='https://raw.githubusercontent.com/style-hooks/docs/master/assets/logo%402x.png' width='320'/>
 </p>
 
 <h2 align=center>Supercharge your styled components with style hooks and themes</h2>
