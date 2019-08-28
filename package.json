@@ -1,6 +1,6 @@
 {
   "name": "@style-hooks/styled",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Jared Lunde <jared@BeStellar.co> (https://jaredLunde.com)",
   "license": "MIT",
   "main": "dist/cjs/index.js",
@@ -58,6 +58,7 @@
     "rimraf": "^3.0.0"
   },
   "dependencies": {
+    "@emotion/hash": "^0.7.2",
     "@emotion/is-prop-valid": "^0.8.2",
     "@essentials/compose": "^1.0.4",
     "html-tags": "^3.1.0",

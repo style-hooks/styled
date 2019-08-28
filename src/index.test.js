@@ -95,6 +95,38 @@ test('template literal [custom component]', () => {
   ).toMatchSnapshot()
 })
 
+test('template literal [nesting]', () => {
+  // eslint-disable-next-line no-unused-vars
+  const MyComponent = ({solid, ...props}) => <span {...props} />
+  const ComponentA = styled(MyComponent)`
+    color: blue;
+    ${(props, theme) => props.solid && {background: theme.colors.black}}
+  `
+  const ComponentB = styled.div`
+    ${ComponentA} > & {
+      display: none;
+    }
+  `
+  expect(
+    renderWithTheme(<ComponentB solid />, theme).asFragment()
+  ).toMatchSnapshot()
+})
+
+test('template literal [styledId]', () => {
+  // eslint-disable-next-line no-unused-vars
+  const MyComponent = ({solid, ...props}) => <span {...props} />
+  const fn = (props, theme) => props.solid && {background: theme.colors.black}
+  const ComponentA = styled(MyComponent)`
+    color: blue;
+    ${fn}
+  `
+  const ComponentB = styled.div`
+    color: blue;
+    ${fn}
+  `
+  expect(ComponentA.styledId).toBe(ComponentB.styledId)
+})
+
 test('template literal [with hooks]', () => {
   // eslint-disable-next-line no-unused-vars
   const Component = styled.div`
@@ -142,6 +174,15 @@ test('function [with hooks]', () => {
   expect(
     renderWithTheme(<Component size="1" w="200" />).asFragment()
   ).toMatchSnapshot()
+})
+
+test('function [styledId]', () => {
+  // eslint-disable-next-line no-unused-vars
+  const fn = (props, theme) => `color: blue;`
+  const ComponentA = styled.div(fn, [useText, useBox])
+  // eslint-disable-next-line no-unused-vars
+  const ComponentB = styled.div(fn, [useText, useBox])
+  expect(ComponentA.styledId).toBe(ComponentB.styledId)
 })
 
 test('function [custom component]', () => {
@@ -211,6 +252,33 @@ test('object [as prop]', () => {
   expect(
     renderWithTheme(<Component as="span" />).asFragment()
   ).toMatchSnapshot()
+})
+
+test('object [styledId]', () => {
+  const ComponentA = styled.div({color: 'blue', backgroundColor: '#000'})
+  const ComponentB = styled.div({color: 'blue', backgroundColor: '#000'})
+  expect(ComponentA.styledId).toBe(ComponentB.styledId)
+})
+
+test('object [styledId w/ hooks]', () => {
+  const ComponentA = styled.div({color: 'blue', backgroundColor: '#000'}, [
+    useBox,
+    useText,
+  ])
+  const ComponentB = styled.div({color: 'blue', backgroundColor: '#000'}, [
+    useBox,
+    useText,
+  ])
+  expect(ComponentA.styledId).toBe(ComponentB.styledId)
+})
+
+test('object [styledId w/ mixed hooks]', () => {
+  const ComponentA = styled.div({color: 'blue', backgroundColor: '#000'})
+  const ComponentB = styled.div({color: 'blue', backgroundColor: '#000'}, [
+    useBox,
+    useText,
+  ])
+  expect(ComponentA.styledId).not.toBe(ComponentB.styledId)
 })
 
 test('object [with hooks]', () => {

@@ -1,9 +1,54 @@
 import React from 'react'
 import {css} from '@emotion/core'
 import isPropValid from '@emotion/is-prop-valid'
+import hashString from '@emotion/hash'
 import {createElement, useTheme} from '@style-hooks/core'
 import compose from '@essentials/compose'
 import tags from 'html-tags'
+
+const ws = /\s+/g
+const serialize = (input, values, hooks) => {
+  let replacer = (key, value) => {
+    // if we get a function give us the code for that function
+    if (Array.isArray(value)) {
+      let out = ''
+      value.forEach(v => (out += JSON.stringify(v, replacer)))
+      return out
+    }
+
+    return !value
+      ? ''
+      : typeof value === 'function'
+      ? `${value.name}=${value.toString().replace(ws, ' ')}`
+      : typeof value.styles === 'string'
+      ? value.styles.replace(ws, ' ')
+      : typeof value.styledId === 'string'
+      ? `.${value.styledId}`
+      : typeof value === 'object'
+      ? JSON.stringify(value)
+      : value.toString().replace(ws, ' ')
+  }
+  // get a stringified version of our object
+  // and indent the keys at 2 spaces
+  let next
+
+  if (values?.length) {
+    next = []
+
+    for (let i = 0; i < input.length; i++) {
+      next.push(input[i])
+      next.push(values[i])
+    }
+
+    next = JSON.stringify(next, replacer)
+  } else {
+    next = JSON.stringify(input, replacer)
+  }
+
+  next = hooks?.length ? next + JSON.stringify(hooks, replacer) : next
+  console.log(next)
+  return next
+}
 
 const tagged = (input, values, props, theme) => {
   let output = '',
@@ -19,6 +64,8 @@ const tagged = (input, values, props, theme) => {
         ? css(value(props, theme)).styles
         : typeof value.styles === 'string'
         ? value.styles
+        : typeof value.styledId === 'string'
+        ? `.${value.styledId}`
         : value.toString())
   }
 
@@ -31,8 +78,9 @@ const withoutInvalidProps = props => {
     i = 0
   for (; i < keys.length; i++) {
     const key = keys[i]
-    if (key === 'as' || key === 'css' || isPropValid(key))
+    if (key === 'as' || key === 'css' || isPropValid(key)) {
       output[key] = props[key]
+    }
   }
   return output
 }
@@ -42,7 +90,9 @@ const mergeCssProp = (props, defaultStyles) => {
   if (Array.isArray(props.css)) {
     props.css = props.css.slice(0)
     props.css.push(defaultStyles)
-  } else props.css = defaultStyles
+  } else {
+    props.css = defaultStyles
+  }
   return props
 }
 
@@ -69,10 +119,13 @@ const withStyleHooks = Component =>
 const styled = Component => (input, ...args) => {
   const isDom = typeof Component === 'string'
   let useCss,
-    useHooks = props => props
+    useHooks = props => props,
+    styledId,
+    derivedCss
 
   if (Array.isArray(input)) {
     // styled.div`foo: bar;`
+    styledId = `sh-${hashString(serialize(input, args))}`
     let hasFn = false
     for (let i = 0; i < args.length; i++) {
       if (typeof args[i] === 'function') {
@@ -81,27 +134,37 @@ const styled = Component => (input, ...args) => {
       }
     }
 
-    useCss = hasFn
-      ? props =>
-          mergeCssProp(props, css(tagged(input, args, props, useTheme())))
-      : props => mergeCssProp(props, css(tagged(input, args, props, null)))
+    if (hasFn) {
+      useCss = props =>
+        mergeCssProp(props, css(tagged(input, args, props, useTheme())))
+    } else {
+      derivedCss = css(tagged(input, args))
+      useCss = props => mergeCssProp(props, derivedCss)
+    }
   } else {
+    styledId = `sh-${hashString(serialize(input, null, args))}`
+
     if (Array.isArray(args[0]) && args[0].length > 0) {
       let hooks = compose.apply(this, args[0])
       useHooks = props => hooks(props)
     }
 
-    useCss =
-      typeof input === 'function'
-        ? // styled.div((props, theme) => {})
-          props => mergeCssProp(props, css(input(props, useTheme())))
-        : // styled.div({foo: 'bar'})
-          // styled.div(`foo: bar;')
-          props => mergeCssProp(props, css(input))
+    if (typeof input === 'function') {
+      // styled.div((props, theme) => {})
+      useCss = props => mergeCssProp(props, css(input(props, useTheme())))
+    } else {
+      // styled.div({foo: 'bar'})
+      // styled.div(`foo: bar;')
+      derivedCss = css(input)
+      useCss = props => mergeCssProp(props, derivedCss)
+    }
   }
 
   const StyledComponent = React.forwardRef((props, ref) => {
     props = useCss(useHooks(props))
+    props.className = props.className
+      ? `${props.className} ${styledId}`
+      : styledId
     props =
       isDom || typeof props.as === 'string' ? withoutInvalidProps(props) : props
     props.ref = ref
@@ -109,11 +172,13 @@ const styled = Component => (input, ...args) => {
   })
 
   StyledComponent.compose = withStyleHooks(StyledComponent)
+  StyledComponent.styledId = styledId
 
-  if (__DEV__)
+  if (__DEV__) {
     StyledComponent.displayName = `styled(${require('react-display-name').default(
       Component
     )})`
+  }
 
   return StyledComponent
 }

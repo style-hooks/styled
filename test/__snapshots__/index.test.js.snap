@@ -8,7 +8,7 @@ exports[`function [custom component] 1`] = `
 }
 
 <span
-    class="emotion-0"
+    class="sh-1rojczd emotion-0"
   />
 </DocumentFragment>
 `;
@@ -21,7 +21,7 @@ exports[`function [returns object] 1`] = `
 }
 
 <div
-    class="emotion-0"
+    class="sh-1y61m6m emotion-0"
   />
 </DocumentFragment>
 `;
@@ -35,7 +35,7 @@ exports[`function [with hooks] 1`] = `
 }
 
 <div
-    class="emotion-0"
+    class="sh-49mx7o emotion-0"
   />
 </DocumentFragment>
 `;
@@ -48,7 +48,7 @@ exports[`function 1`] = `
 }
 
 <div
-    class="emotion-0"
+    class="sh-1pjx8ox emotion-0"
   />
 </DocumentFragment>
 `;
@@ -61,7 +61,7 @@ exports[`object [as prop] 1`] = `
 }
 
 <span
-    class="emotion-0"
+    class="sh-1fdlqmw emotion-0"
   />
 </DocumentFragment>
 `;
@@ -74,7 +74,7 @@ exports[`object [custom component] 1`] = `
 }
 
 <span
-    class="emotion-0"
+    class="sh-1fdlqmw emotion-0"
   />
 </DocumentFragment>
 `;
@@ -89,7 +89,7 @@ exports[`object [with hooks] 1`] = `
 }
 
 <div
-    class="emotion-0"
+    class="sh-gc1rre emotion-0"
   />
 </DocumentFragment>
 `;
@@ -102,7 +102,7 @@ exports[`object 1`] = `
 }
 
 <div
-    class="emotion-0"
+    class="sh-1fdlqmw emotion-0"
   />
 </DocumentFragment>
 `;
@@ -115,7 +115,7 @@ exports[`string [as prop] 1`] = `
 }
 
 <span
-    class="emotion-0"
+    class="sh-1nh64sa emotion-0"
   />
 </DocumentFragment>
 `;
@@ -128,7 +128,7 @@ exports[`string [custom component] 1`] = `
 }
 
 <span
-    class="emotion-0"
+    class="sh-1nh64sa emotion-0"
   />
 </DocumentFragment>
 `;
@@ -142,7 +142,7 @@ exports[`string [with hooks] 1`] = `
 }
 
 <div
-    class="emotion-0"
+    class="sh-jv8xlf emotion-0"
   />
 </DocumentFragment>
 `;
@@ -155,7 +155,7 @@ exports[`string 1`] = `
 }
 
 <div
-    class="emotion-0"
+    class="sh-1nh64sa emotion-0"
   />
 </DocumentFragment>
 `;
@@ -168,7 +168,7 @@ exports[`template literal [as prop] 1`] = `
 }
 
 <span
-    class="emotion-0"
+    class="sh-1bko81 emotion-0"
   />
 </DocumentFragment>
 `;
@@ -181,7 +181,7 @@ exports[`template literal [css] 1`] = `
 }
 
 <div
-    class="emotion-0"
+    class="sh-vuzr9q emotion-0"
   />
 </DocumentFragment>
 `;
@@ -194,7 +194,7 @@ exports[`template literal [custom component] 1`] = `
 }
 
 <span
-    class="emotion-0"
+    class="sh-1jk49nu emotion-0"
   />
 </DocumentFragment>
 `;
@@ -206,7 +206,7 @@ exports[`template literal [falsy] 1`] = `
 }
 
 <div
-    class="emotion-0"
+    class="sh-1ag12a6 emotion-0"
   />
 </DocumentFragment>
 `;
@@ -219,7 +219,7 @@ exports[`template literal [function -> object] 1`] = `
 }
 
 <div
-    class="emotion-0"
+    class="sh-j0ganl emotion-0"
   />
 </DocumentFragment>
 `;
@@ -232,7 +232,7 @@ exports[`template literal [function -> string] 1`] = `
 }
 
 <div
-    class="emotion-0"
+    class="sh-5ofk0m emotion-0"
   />
 </DocumentFragment>
 `;
@@ -244,7 +244,19 @@ exports[`template literal [function -> string] 2`] = `
 }
 
 <div
-    class="emotion-0"
+    class="sh-5ofk0m emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`template literal [nesting] 1`] = `
+<DocumentFragment>
+  .sh-1iu3jre > .emotion-0 {
+  display: none;
+}
+
+<div
+    class="sh-1lj17gj emotion-0"
   />
 </DocumentFragment>
 `;
@@ -256,7 +268,7 @@ exports[`template literal [plain string] 1`] = `
 }
 
 <div
-    class="emotion-0"
+    class="sh-1ujecri emotion-0"
   />
 </DocumentFragment>
 `;
@@ -270,7 +282,7 @@ exports[`template literal [with hooks] 1`] = `
 }
 
 <div
-    class="emotion-0"
+    class="sh-1ujecri emotion-0"
   />
 </DocumentFragment>
 `;
