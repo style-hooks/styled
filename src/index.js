@@ -46,11 +46,10 @@ const serialize = (input, values, hooks) => {
   }
 
   next = hooks?.length ? next + JSON.stringify(hooks, replacer) : next
-  console.log(next)
   return next
 }
 
-const tagged = (input, values, props, theme) => {
+const tagged = (input, values, theme, props) => {
   let output = '',
     i = 0
 
@@ -61,7 +60,7 @@ const tagged = (input, values, props, theme) => {
       (!value
         ? ''
         : typeof value === 'function'
-        ? css(value(props, theme)).styles
+        ? css(value(theme, props)).styles
         : typeof value.styles === 'string'
         ? value.styles
         : typeof value.styledId === 'string'
@@ -136,7 +135,7 @@ const styled = Component => (input, ...args) => {
 
     if (hasFn) {
       useCss = props =>
-        mergeCssProp(props, css(tagged(input, args, props, useTheme())))
+        mergeCssProp(props, css(tagged(input, args, useTheme(), props)))
     } else {
       derivedCss = css(tagged(input, args))
       useCss = props => mergeCssProp(props, derivedCss)
@@ -150,8 +149,8 @@ const styled = Component => (input, ...args) => {
     }
 
     if (typeof input === 'function') {
-      // styled.div((props, theme) => {})
-      useCss = props => mergeCssProp(props, css(input(props, useTheme())))
+      // styled.div((theme, props) => {})
+      useCss = props => mergeCssProp(props, css(input(useTheme(), props)))
     } else {
       // styled.div({foo: 'bar'})
       // styled.div(`foo: bar;')

@@ -28,7 +28,7 @@ test('template literal [plain string]', () => {
 test('template literal [function -> string]', () => {
   const Component = styled.div`
     color: blue;
-    ${(props, theme) =>
+    ${(theme, props) =>
       props.solid ? `background: ${theme.colors.black};` : ''}
   `
   expect(
@@ -65,7 +65,7 @@ test('template literal [falsy]', () => {
 test('template literal [function -> object]', () => {
   const Component = styled.div`
     color: blue;
-    ${(props, theme) => props.solid && {background: theme.colors.black}}
+    ${(theme, props) => props.solid && {background: theme.colors.black}}
   `
   expect(
     renderWithTheme(<Component solid />, theme).asFragment()
@@ -88,7 +88,7 @@ test('template literal [custom component]', () => {
   const MyComponent = ({solid, ...props}) => <span {...props} />
   const Component = styled(MyComponent)`
     color: blue;
-    ${(props, theme) => props.solid && {background: theme.colors.black}}
+    ${(theme, props) => props.solid && {background: theme.colors.black}}
   `
   expect(
     renderWithTheme(<Component solid />, theme).asFragment()
@@ -100,7 +100,7 @@ test('template literal [nesting]', () => {
   const MyComponent = ({solid, ...props}) => <span {...props} />
   const ComponentA = styled(MyComponent)`
     color: blue;
-    ${(props, theme) => props.solid && {background: theme.colors.black}}
+    ${(theme, props) => props.solid && {background: theme.colors.black}}
   `
   const ComponentB = styled.div`
     ${ComponentA} > & {
@@ -115,7 +115,7 @@ test('template literal [nesting]', () => {
 test('template literal [styledId]', () => {
   // eslint-disable-next-line no-unused-vars
   const MyComponent = ({solid, ...props}) => <span {...props} />
-  const fn = (props, theme) => props.solid && {background: theme.colors.black}
+  const fn = (theme, props) => props.solid && {background: theme.colors.black}
   const ComponentA = styled(MyComponent)`
     color: blue;
     ${fn}
@@ -144,7 +144,7 @@ test('template literal [with hooks]', () => {
 test('function', () => {
   // eslint-disable-next-line no-unused-vars
   const Component = styled.div(
-    (props, theme) => `
+    (theme, props) => `
     color: blue;
     ${props.solid ? `background-color: ${theme.colors.black};` : ''}
   `
@@ -156,7 +156,7 @@ test('function', () => {
 
 test('function [returns object]', () => {
   // eslint-disable-next-line no-unused-vars
-  const Component = styled.div((props, theme) => ({
+  const Component = styled.div((theme, props) => ({
     color: 'blue',
     backgroundColor: props.solid ? theme.colors.black : 'transparent',
   }))
@@ -167,7 +167,7 @@ test('function [returns object]', () => {
 
 test('function [with hooks]', () => {
   // eslint-disable-next-line no-unused-vars
-  const Component = styled.div((props, theme) => `color: blue;`, [
+  const Component = styled.div((theme, props) => `color: blue;`, [
     useText,
     useBox,
   ])
@@ -178,7 +178,7 @@ test('function [with hooks]', () => {
 
 test('function [styledId]', () => {
   // eslint-disable-next-line no-unused-vars
-  const fn = (props, theme) => `color: blue;`
+  const fn = (theme, props) => `color: blue;`
   const ComponentA = styled.div(fn, [useText, useBox])
   // eslint-disable-next-line no-unused-vars
   const ComponentB = styled.div(fn, [useText, useBox])
@@ -188,7 +188,7 @@ test('function [styledId]', () => {
 test('function [custom component]', () => {
   // eslint-disable-next-line no-unused-vars
   const MyComponent = ({solid, ...props}) => <span {...props} />
-  const Component = styled(MyComponent)((props, theme) => ({
+  const Component = styled(MyComponent)((theme, props) => ({
     color: 'blue',
     backgroundColor: props.solid ? theme.colors.black : 'transparent',
   }))

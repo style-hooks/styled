@@ -8,7 +8,7 @@ exports[`function [custom component] 1`] = `
 }
 
 <span
-    class="sh-1rojczd emotion-0"
+    class="sh-1gyu0ys emotion-0"
   />
 </DocumentFragment>
 `;
@@ -21,7 +21,7 @@ exports[`function [returns object] 1`] = `
 }
 
 <div
-    class="sh-1y61m6m emotion-0"
+    class="sh-nioo45 emotion-0"
   />
 </DocumentFragment>
 `;
@@ -35,7 +35,7 @@ exports[`function [with hooks] 1`] = `
 }
 
 <div
-    class="sh-49mx7o emotion-0"
+    class="sh-d0owlu emotion-0"
   />
 </DocumentFragment>
 `;
@@ -48,7 +48,7 @@ exports[`function 1`] = `
 }
 
 <div
-    class="sh-1pjx8ox emotion-0"
+    class="sh-15wbr9h emotion-0"
   />
 </DocumentFragment>
 `;
@@ -89,7 +89,7 @@ exports[`object [with hooks] 1`] = `
 }
 
 <div
-    class="sh-gc1rre emotion-0"
+    class="sh-1ivp1py emotion-0"
   />
 </DocumentFragment>
 `;
@@ -142,7 +142,7 @@ exports[`string [with hooks] 1`] = `
 }
 
 <div
-    class="sh-jv8xlf emotion-0"
+    class="sh-69i6do emotion-0"
   />
 </DocumentFragment>
 `;
@@ -194,7 +194,7 @@ exports[`template literal [custom component] 1`] = `
 }
 
 <span
-    class="sh-1jk49nu emotion-0"
+    class="sh-1kxzivz emotion-0"
   />
 </DocumentFragment>
 `;
@@ -219,7 +219,7 @@ exports[`template literal [function -> object] 1`] = `
 }
 
 <div
-    class="sh-j0ganl emotion-0"
+    class="sh-15enblb emotion-0"
   />
 </DocumentFragment>
 `;
@@ -232,7 +232,7 @@ exports[`template literal [function -> string] 1`] = `
 }
 
 <div
-    class="sh-5ofk0m emotion-0"
+    class="sh-1e22nx7 emotion-0"
   />
 </DocumentFragment>
 `;
@@ -244,19 +244,19 @@ exports[`template literal [function -> string] 2`] = `
 }
 
 <div
-    class="sh-5ofk0m emotion-0"
+    class="sh-1e22nx7 emotion-0"
   />
 </DocumentFragment>
 `;
 
 exports[`template literal [nesting] 1`] = `
 <DocumentFragment>
-  .sh-1iu3jre > .emotion-0 {
+  .sh-undive > .emotion-0 {
   display: none;
 }
 
 <div
-    class="sh-1lj17gj emotion-0"
+    class="sh-kki52s emotion-0"
   />
 </DocumentFragment>
 `;

@@ -1166,10 +1166,10 @@
     babel-plugin-dev-expression latest
     babel-plugin-macros latest
 
-"@style-hooks/core@^2.0.0-alpha.1":
-  version "2.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@style-hooks/core/-/core-2.0.0-alpha.1.tgz#a32201994c4b28f836e24f32623a146527738487"
-  integrity sha512-SklXVq5uWeMZRcwJGWOn9drsd+hK1px3W3DACbEfSwkrbRh/qYMrZWBhFsXsPhseeO73Oe3H33L4GKrw+3LKCg==
+"@style-hooks/core@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@style-hooks/core/-/core-2.0.3.tgz#5b76baf9c97ac4cc353d59130694308c3dd16bd1"
+  integrity sha512-64PDZcYyxk69uajfTvYtXCrRwocq3GlhGK+Odjm0uTiRRGBMKlzKnLLxqTS01bmidxyRkQXYZiL2N+r9keQq5Q==
   dependencies:
     empty "^0.10.1"
     is-mergeable-object "^1.1.1"

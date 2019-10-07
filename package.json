@@ -1,6 +1,6 @@
 {
   "name": "@style-hooks/styled",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "author": "Jared Lunde <jared@BeStellar.co> (https://jaredLunde.com)",
   "license": "MIT",
   "main": "dist/cjs/index.js",
@@ -35,7 +35,7 @@
     "@babel/preset-react": "^7.0.0",
     "@emotion/core": "^10.0.16",
     "@style-hooks/babel-preset-es": "^1.0.3",
-    "@style-hooks/core": "^2.0.0-alpha.1",
+    "@style-hooks/core": "^2.0.3",
     "@testing-library/jest-dom": "^4.0.1",
     "@testing-library/react": "^9.1.3",
     "@testing-library/react-hooks": "^2.0.1",
