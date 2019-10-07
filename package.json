@@ -92,7 +92,10 @@
   "lint-staged": {
     "src/**/*.js": [
       "eslint",
-      "pretty-quick --staged"
+      "prettier --write"
+    ],
+    "**/*.{md,yml}": [
+      "prettier --write"
     ]
   },
   "homepage": "https://style-hooks.jaredlunde.com/styled-components/",
