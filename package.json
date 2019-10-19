@@ -1,13 +1,11 @@
 {
   "name": "@style-hooks/styled",
   "version": "2.0.0",
+  "homepage": "https://style-hooks.jaredlunde.com/styled-components/",
+  "repository": "github:style-hooks/styled",
+  "bugs": "https://github.com/style-hooks/styled/issues",
   "author": "Jared Lunde <jared@BeStellar.co> (https://jaredLunde.com)",
   "license": "MIT",
-  "main": "dist/cjs/index.js",
-  "module": "dist/es/index.js",
-  "files": [
-    "/dist"
-  ],
   "description": "⚡️Supercharge your styled components with Style Hooks and themes",
   "keywords": [
     "react",
@@ -30,7 +28,36 @@
     "styled components",
     "emotion"
   ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "files": [
+    "/dist"
+  ],
   "sideEffects": false,
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:es",
+    "build:cjs": "babel src -d dist/cjs -x .js --ignore \"**/*.test.js\",\"**/test.js\" --delete-dir-on-start",
+    "build:es": "cross-env BABEL_ENV=es babel src -d dist/es -x .js  --ignore \"**/*.test.js\",\"**/test.js\" --delete-dir-on-start",
+    "format": "prettier --write \"**/*.{js,jsx,md,yml,json,babelrc,eslintrc,prettierrc}\"",
+    "lint": "eslint .",
+    "prepublishOnly": "npm run lint && npm run test && npm run build && npm run format",
+    "test": "jest",
+    "validate": "npm run lint && npm run test -- --coverage"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "eslint",
+      "prettier --write"
+    ],
+    "**/*.{md,yml,json,babelrc,eslintrc,prettierrc}": [
+      "prettier --write"
+    ]
+  },
   "devDependencies": {
     "@babel/preset-react": "^7.0.0",
     "@emotion/core": "^10.0.16",
@@ -70,40 +97,5 @@
     "prop-types": ">= 15.6.0",
     "react": ">= 16.8.0",
     "react-dom": ">= 16.8.0"
-  },
-  "scripts": {
-    "build": "npm run build:cjs && npm run build:es",
-    "build:cjs": "babel src -d dist/cjs -x .js --ignore \"**/*.test.js\",\"**/test.js\" --delete-dir-on-start",
-    "build:es": "cross-env BABEL_ENV=es babel src -d dist/es -x .js  --ignore \"**/*.test.js\",\"**/test.js\" --delete-dir-on-start",
-    "format": "npm run format:cjs && npm run format:es && npm run format:src",
-    "format:cjs": "prettier --write \"dist/cjs/**/*.js\"",
-    "format:es": "prettier --write \"dist/es/**/*.js\"",
-    "format:src": "prettier --write \"src/**/*.js\"",
-    "lint": "eslint src",
-    "prepublishOnly": "npm run lint && npm run test && npm run build && npm run format",
-    "test": "jest",
-    "validate": "npm run lint && npm run test -- --coverage"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.js": [
-      "eslint",
-      "prettier --write"
-    ],
-    "**/*.{md,yml}": [
-      "prettier --write"
-    ]
-  },
-  "homepage": "https://style-hooks.jaredlunde.com/styled-components/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/style-hooks/styled.git"
-  },
-  "bugs": {
-    "url": "https://github.com/style-hooks/styled/issues"
   }
 }

@@ -5,7 +5,7 @@ module.exports = {
   moduleDirectories: [
     'node_modules',
     path.join(__dirname, 'src'),
-    path.join(__dirname, 'test')
+    path.join(__dirname, 'test'),
   ],
   // moduleNameMapper: {},
   setupFilesAfterEnv: [require.resolve('./test/setup.js')],
@@ -20,6 +20,6 @@ module.exports = {
   //   }
   // },
   globals: {
-    __DEV__: true
-  }
+    __DEV__: true,
+  },
 }
