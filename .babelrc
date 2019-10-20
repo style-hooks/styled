@@ -18,7 +18,8 @@
             "env": {
               "modules": false,
               "targets": ">2% in US"
-            }
+            },
+            "objectAssign": false
           }
         ]
       ]
