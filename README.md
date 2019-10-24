@@ -1,7 +1,7 @@
-[![bundlephobia](https://img.shields.io/bundlephobia/minzip/@style-hooks/styled?style=plastic)](https://bundlephobia.com/result?p=@style-hooks/styled)
-[![codecov](https://codecov.io/gh/style-hooks/styled/branch/master/graph/badge.svg)](https://codecov.io/gh/style-hooks/styled)
-[![Build Status](https://travis-ci.org/style-hooks/styled.svg?branch=master)](https://travis-ci.org/style-hooks/styled)
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://jaredlunde.mit-license.org/)
+[![Bundlephobia](https://img.shields.io/bundlephobia/minzip/@style-hooks/styled?style=for-the-badge)](https://bundlephobia.com/result?p=@style-hooks/styled)
+[![Code coverage](https://img.shields.io/codecov/c/gh/style-hooks/styled?style=for-the-badge)](https://codecov.io/gh/style-hooks/styled)
+[![Build status](https://img.shields.io/travis/style-hooks/styled?style=for-the-badge)](https://travis-ci.org/style-hooks/styled)
+[![License](https://img.shields.io/github/license/style-hooks/styled?style=for-the-badge)](https://jaredlunde.mit-license.org/)
 
 ---
 
